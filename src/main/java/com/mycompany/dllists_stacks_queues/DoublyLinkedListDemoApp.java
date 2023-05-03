@@ -3,7 +3,7 @@ package com.mycompany.dllists_stacks_queues;
 
 /**
  *
- * @author MoaathAlrajab
+ * @author Kevin Guerra 
  */
 public class DoublyLinkedListDemoApp {
    public static void main(String[] args) {
@@ -31,9 +31,27 @@ public class DoublyLinkedListDemoApp {
       // Remove the tail node, then the head node
       numList.remove(nodeF);
       numList.remove(nodeD);
+      
+      System.out.println("List:");
+        numList.printList();
 
-      // Output final list
-      System.out.print("List after removing nodes: ");
-      numList.printList();
+        // convert the list to an array and print it
+        System.out.println("Array:");
+        int[] arr = numList.toArray();
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        // find the index of the first occurrence of 3 in the list
+        int index = numList.indexOf(new Node(3));
+        System.out.println("Index of 3: " + index);
+
+        // find the sum of the last 3 elements in the list
+        int sum = numList.sumLastMElements(3);
+        System.out.println("Sum of last 3 elements: " + sum);
+      
+      
+      
    }
 }

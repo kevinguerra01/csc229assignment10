@@ -1,9 +1,11 @@
 
 package com.mycompany.dllists_stacks_queues;
 
+import java.util.Arrays;
+
 /**
  *
- * @author MoaathAlrajab
+ * @author Kevin Guerra
  */
 class Node {
    public int data;
@@ -94,4 +96,50 @@ public class DoublyLinkedList {
       if (currentNode == tail)
          tail = predecessor;
    }
+   
+   public int[] toArray() {
+        int[] arr = new int[this.getSize()];
+        Node current = head;
+        int i = 0;
+        while (current != null) {
+            arr[i++] = current.data;
+            current = current.next;
+        }
+        return arr;
+    }
+
+    public int indexOf(int[] obj) {
+        int index = 0;
+        Node current = head;
+        while (current != null) {
+            for (current.data.equals(obj)) {
+                return index;
+            }
+            index++;
+            current = current.next;
+        }
+        return -1;
+    }
+
+    public int sumLastMElements(int m) {
+        int sum = 0;
+        Node current = tail;
+        int count = 0;
+        while (current != null && count < m) {
+            sum += current.data;
+            current = current.previous;
+            count++;
+        }
+        return sum;
+    }
+
+    private int getSize() { 
+        int count = 0; 
+        Node current = head; 
+        while (current != null) { 
+            count++; 
+            current = current.next; 
+        } 
+        return count; 
+    } 
 }
